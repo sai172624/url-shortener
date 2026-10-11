@@ -1,0 +1,24 @@
+spring:
+  jpa:
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    com.example.urlshortener: DEBUG
+    org.springframework.security: WARN
+    org.hibernate.SQL: WARN
+    org.testcontainers: WARN
+
+app:
+  jwt:
+    secret: test-secret-key-for-testing-only-must-be-at-least-32-chars-long
+  rate-limit:
+    auth:
+      requests-per-minute: 1000
+    url-create:
+      requests-per-minute: 1000
