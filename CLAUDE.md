@@ -342,11 +342,15 @@ When in doubt: **smaller step, earlier question, shorter explanation.** I'd rath
 ## Current status (Claude: keep this block up to date — it replaces a separate progress file)
 
 ```
-Current phase : Phase 0 — Project skeleton (NOT STARTED)
+Current phase : Phase 4 — Auth + ownership (IN PROGRESS, started first at user's request; Phases 0–3 only partially scaffolded)
 Mode          : LEARN
-Last unit done: —
-Next step     : Phase 0 planning — confirm the todo list before writing any files
-Decisions made: ADR-0001 Base62 over hashing (accepted)
-Blockers      : —
+Last unit done: Full repo orientation — auth plumbing reviewed (entities, repos, JwtService, RefreshTokenService,
+                SecurityConfig, JwtAuthenticationFilter, migrations V1/V3/V4 exist; NO AuthService/Controller/DTOs, NO tests)
+Next step     : Confirm Phase 4 todo list (incl. routing fix decision) → Unit 1: auth DTOs
+Decisions made: ADR-0001 Base62 over hashing (accepted); JWT access + opaque rotating refresh tokens (locked in §2)
+Open question : Drop server.servlet.context-path=/api/v1 so redirect can live at GET /{shortCode} per locked API?
+                (current context-path breaks Security matchers + root-level redirect)
+Blockers      : Sandbox has no JDK/Maven/Docker and Maven Central is unreachable → user runs all builds locally
+                Repo is missing mvnw wrapper and docker-compose.yml (Phase 0 gaps to fix)
 Environment   : JDK 21 [ ], Docker [ ], ./mvnw [ ], docker compose up -d [ ], /actuator/health UP [ ]
 ```
